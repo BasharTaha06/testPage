@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/touch-icon.png?v=1749337480174"
+    />
+    <title>Hamza</title>
+    <!-- PWA requirements -->
+    <meta name="theme-color" content="#9480FF" />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.glitch.me/efc5414a-882b-4708-af81-8461abbc1a82%2Ftouch-icon.png?v=1633521972305"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem;
+      }
+
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .content {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        margin-top: 2rem;
+      }
+
+      /* Header styles */
+      header {
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+        background: linear-gradient(90deg, #9480ff, #5d5fef);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Feature section */
+      .features {
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .feature {
+        flex: 1;
+        min-width: 300px;
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+      }
+
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature h3 {
+        color: #5d5fef;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #9480ff;
+      }
+
+      .linkedin-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem;
+        display: block;
+      }
+
+      .feature-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 8px 16px;
+        background-color: #0077b5;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .feature-link:hover {
+        background-color: #006097;
+      }
+
+      /* Poem Section */
+      .poem-section {
+        background: linear-gradient(135deg, #5d5fef 0%, #9480ff 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 99px;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .poem-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: white;
+        font-weight: 600;
+      }
+
+      .poem-content {
+        font-size: 1.4rem;
+        line-height: 2.2;
+        direction: rtl;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .verse {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .half-verse {
+        flex: 1;
+        max-width: 400px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .half-verse:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      /* Footer styles */
+      footer {
+        background: #2c3e50;
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .footer-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .content {
+          padding: 2rem 1.5rem;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .features {
+          flex-direction: column;
+        }
+
+        .verse {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .half-verse {
+          max-width: 100%;
+        }
+
+        .poem-content {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div id="content" class="content">
+          <header>
+            <h1>Hamza</h1>
+            <img
+              src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/20250126_193745.jpg?v=1749468770921"
+              alt="Your Image"
+              style="width: 200px; height: 200px; border-radius: 50%"
+            />
+            <h3>Free Palestine</h3>
+            <div class="feature-icon"></div>
+            <p class="subtitle"></p>
+          </header>
+
+          <div class="features">
+            <!-- LinkedIn Feature Card -->
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/1591856_linkedin_social_icon.png?v=1749462862527"
+                alt="LinkedIn Logo"
+                class="linkedin-icon"
+              />
+              <h3>LinkedIn</h3>
+              <p></p>
+              <a
+                href="https://www.linkedin.com/in/hamza-osama-961b9027a/"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/images.jpg?v=1749462869782"
+                alt="WhatsApp Logo"
+                class="linkedin-icon"
+              />
+              <h3>Whatsapp</h3>
+              <p></p>
+              <a
+                href="https://wa.me/+2001021230316"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/%D8%B34%D8%B3%D8%B3-removebg-preview.png?v=1749463583862"
+                alt="Instagram Logo"
+                class="linkedin-icon"
+              />
+              <h3>Instagram</h3>
+              <p></p>
+              <a
+                href="https://www.instagram.com/hamzao_9/"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/s-removebg-preview.png?v=1749463858806"
+                alt="Telegram Logo"
+                class="linkedin-icon"
+              />
+              <h3>Telegram</h3>
+              <p></p>
+              <a
+                href="https://t.me/hamzao_18"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/download-removebg-preview%20(1).png?v=1749464048630"
+                alt="Discord Logo"
+                class="linkedin-icon"
+              />
+              <h3>Discord</h3>
+              <p></p>
+              <a
+                href="https://discordapp.com/users/1083137323706892349"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/sm_5b321c9cb2d25-removebg-preview.png?v=1749464369301"
+                alt="Snapchat Logo"
+                class="linkedin-icon"
+              />
+              <h3>Snapchat</h3>
+              <p></p>
+              <a
+                href="https://www.snapchat.com/add/hamzao_18?share_id=6-HJB7nLu50&locale=ar-EG"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/download-removebg-preview%20(3).png?v=1749465289932"
+                alt="Github Logo"
+                class="linkedin-icon"
+              />
+              <h3>Github</h3>
+              <p></p>
+              <a
+                href="https://github.com/hamzao18"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+
+            <div class="feature">
+              <img
+                src="https://cdn.glitch.global/162a7bf8-91a2-4895-9872-2884922f9664/download-removebg-preview%20(4).png?v=1749465405545"
+                alt="Mail Logo"
+                class="linkedin-icon"
+              />
+              <h3>Mail</h3>
+              <p></p>
+              <a
+                href="mailto:hamazosama051@gmail.com"
+                class="feature-link"
+                target="_blank"
+                >Visit</a
+              >
+            </div>
+          </div>
+
+          <!-- Arabic Poem Section -->
+          <div class="poem-section">
+            <h2 class="poem-title">قصيدة أبو القاسم الشابي</h2>
+            <div class="poem-content">
+              <div class="verse">
+                <div class="half-verse">
+                  فاتركْ إلى النَّاسِ دُنياهُمْ وضَجَّتَهُمْ
+                </div>
+                <div class="half-verse">
+                  وما بنوا لنِظامِ العيشِ أَو رَسَموا
+                </div>
+              </div>
+
+              <div class="verse">
+                <div class="half-verse">
+                  واجعلْ حياتَكَ دوحاً مُزْهراً نَضِراً
+                </div>
+                <div class="half-verse">
+                  في عُزْلَةِ الغابِ ينمو ثمَّ ينعدمُ
+                </div>
+              </div>
+
+              <div class="verse">
+                <div class="half-verse">
+                  واجعلْ لياليكَ أَحلاماً مُغَرِّدَةً
+                </div>
+                <div class="half-verse">إنَّ الحَيَاةَ وما تدوي به حُلُمُ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <h2 class="footer-title">فالناسُ موتى وأهلُ العلمِ أحياء</h2>
+      </div>
+    </footer>
+
+    <!-- PWA setup -->
+    <script>
+      if (location.protocol == "http:") location.protocol = "https:";
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then((reg) => console.log("Service Worker registered", reg))
+          .catch((err) =>
+            console.error("Service Worker **not** registered", err)
+          );
+      } else {
+        console.warn("Service Worker not supported in this browser");
+      }
+    </script>
+    <script type="module" src="scripts/render.js"></script>
+  </body>
+</html>
